@@ -7,7 +7,7 @@ int g_counter = 0;
 
 void* increment(){
 	int i;
-	for(i=0; i<100000; ++i){
+	for(i=0; i<10000000; ++i){
 		g_counter++;
 	}
 }

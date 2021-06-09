@@ -24,7 +24,7 @@ void* thread(void* arg){
 }
 
 int main(){
-	sem_init(&g_semaphore, 0, 1); /*0 = semaphore is local.
+	sem_init(&g_semaphore, 0, 2); /*0 = semaphore is local.
 					2 = non-binary semaphore.*/
 	pthread_t thread1, thread2, thread3;
 
