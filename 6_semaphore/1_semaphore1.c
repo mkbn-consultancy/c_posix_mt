@@ -5,7 +5,8 @@
 /*
 In this example, 2 threads are being created, one 2 seconds after the first one.
 But the first one will sleep for 4 seconds after acquiring the lock.
-Thus the second thread will not enter immediately after it is called, but it will enter 4-2=2 seconds after it is called.
+Thus the second thread will not enter immediately after it is called, 
+but it will enter 4-2=2 seconds after it is called.
 */
 
 sem_t g_semaphore;
