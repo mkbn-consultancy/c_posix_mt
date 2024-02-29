@@ -5,16 +5,18 @@
 
 sem_t g_semaphore;
 
-void* print0(void* arg){
-	printf("0-");
+void* printHello(void*){
+	printf("Hello ");
 	sem_post(&g_semaphore); /*increase value of sem by 1*/
+	return NULL;
 }
 
 
-void* print1(void* arg){
+void* printWorld(void*){
 	/*wait*/
 	sem_wait(&g_semaphore); /*reduce sem in 1 if sem value > 0*/
-	printf("1-");
+	printf("World!\n");
+	return NULL;
 }
 
 int main(){
@@ -22,9 +24,9 @@ int main(){
 
 	pthread_t thread1, thread2;
 
-	pthread_create(&thread1, NULL, print1, NULL);
+	pthread_create(&thread1, NULL, printWorld, NULL);
 	sleep(2);
-	pthread_create(&thread2, NULL, print0, NULL);
+	pthread_create(&thread2, NULL, printHello, NULL);
 
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);

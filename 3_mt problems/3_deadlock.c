@@ -2,52 +2,61 @@
 #include <stdio.h>
 #include <unistd.h>
 
-pthread_mutex_t lock1, lock2;
+pthread_mutex_t res1, res2;
 
-void *resource1(){
-	pthread_mutex_lock(&lock1);
+void aquire_resource(pthread_mutex_t* resource){
+	pthread_mutex_lock(resource);
+}
+void release_resource(pthread_mutex_t* resource){
+    pthread_mutex_unlock(resource);
+}
 
-	printf("Job started in resource1..\n");
+void *some_function_1(){
+	aquire_resource(&res1);
+
+	printf("Job started in some_function_1..\n");
 	sleep(2);
 
-	printf("Trying to get resourc2\n");
-	pthread_mutex_lock(&lock2);
-	printf("Aquired resourc2\n");
-	pthread_mutex_unlock(&lock2);
+	printf("Trying to get resourc 2\n");
+	aquire_resource(&res2);
+	printf("Aquired resourc 2\n");
+	
+	release_resource(&res2);
 
-	printf("Job finished in resource1..\n");
+	printf("Job finished in some_function_1..\n");
 
-	pthread_mutex_unlock(&lock1);
+	release_resource(&res1);
 
 	pthread_exit(NULL);
 }
 
-void *resource2(){
-	pthread_mutex_lock(&lock2);
+void *some_function_2(){
+	aquire_resource(&res2);
 
-	printf("Job started in resource2..\n");
+	printf("Job started in some_function_2..\n");
 	sleep(2);
 
-	printf("Trying to get resourc1\n");
-	pthread_mutex_lock(&lock1);
-	printf("Aquired resourc1\n");
-	pthread_mutex_unlock(&lock1);
+	printf("Trying to get resourc 1\n");
+	aquire_resource(&res1);
+	printf("Aquired resourc 1\n");
 
-	printf("Job finished in resource2..\n");
+	release_resource(&res1);
 
-	pthread_mutex_unlock(&lock2);
+	printf("Job finished in some_function_2..\n");
+
+	release_resource(&res2);
 
 	pthread_exit(NULL);
 }
 
 int main() {
-	pthread_mutex_init(&lock1,NULL);
-	pthread_mutex_init(&lock2,NULL);
+	pthread_mutex_init(&res1,NULL);
+	pthread_mutex_init(&res2,NULL);
 
 	pthread_t t1,t2;
 
-	pthread_create(&t1,NULL,resource1,NULL);
-	pthread_create(&t2,NULL,resource2,NULL);
+	pthread_create(&t1,NULL,some_function_1,NULL);
+	pthread_create(&t2,NULL,some_function_2,NULL);
 
 	pthread_join(t1,NULL);
 	pthread_join(t2,NULL);
@@ -56,3 +65,4 @@ int main() {
 }
 
 //This program executes in order, have a look
+

@@ -13,7 +13,8 @@ int main(){
 	}
 	else if(pid==0){
 		printf("I'm the child process\n");
-		sleep(30);
+
+		sleep(5);
 		execlp("/bin/ls","ls",NULL);
 		printf("Child done...\n");
 	}
@@ -24,4 +25,3 @@ int main(){
 		_exit(0);
 	}
 }
-

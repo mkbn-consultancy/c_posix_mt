@@ -10,17 +10,19 @@ Thus the second thread will not enter immediately after it is called, but it wil
 
 sem_t g_semaphore;
 
-void* thread(void* arg){
+void* thread(void*){
 	/*wait*/
 	sem_wait(&g_semaphore);
 	printf("Entered the Critical Section...\n");
 	
 	/*the critical section*/
-	sleep(4);
+	sleep(2);
 
 	/*signal*/
 	printf("Just Exiting the Critical Section...\n");
 	sem_post(&g_semaphore);
+
+	return NULL;
 }
 
 int main(){
@@ -41,3 +43,4 @@ int main(){
 	return 0;
 }
 
+// https://onlinegdb.com/xRDrv4__E

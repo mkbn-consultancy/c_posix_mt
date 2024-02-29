@@ -10,7 +10,7 @@ Thus the second thread will not enter immediately after it is called, but it wil
 
 sem_t g_semaphore;
 
-void* thread(void* arg){
+void* thread(void*){
 	int val;
 
 	/*wait*/
@@ -26,6 +26,8 @@ void* thread(void* arg){
 	sem_post(&g_semaphore);
 	sem_getvalue(&g_semaphore, &val);
 	printf("After post: value of semaphore = %d\n\n", val);
+
+	return NULL;
 }
 
 int main(){

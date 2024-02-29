@@ -11,7 +11,7 @@ but it will enter 4-2=2 seconds after it is called.
 
 sem_t g_semaphore;
 
-void* thread(void* arg){
+void* thread(void*){
 	/*wait*/
 	sem_wait(&g_semaphore);
 	printf("Entered the Critical Section...\n");
@@ -22,6 +22,7 @@ void* thread(void* arg){
 	/*signal*/
 	printf("Just Exiting the Critical Section...\n");
 	sem_post(&g_semaphore);
+    return NULL;
 }
 
 int main(){
@@ -42,4 +43,3 @@ int main(){
 
 	return 0;
 }
-
