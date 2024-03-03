@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "C_Cpp_Runner.cCompilerPath": "C:\\Program Files\\mingw64\\bin\\gcc.exe",
   "C_Cpp_Runner.cppCompilerPath": "C:\\Program Files\\mingw64\\bin\\g++.exe",
   "C_Cpp_Runner.debuggerPath": "C:\\Program Files\\mingw64\\bin\\gdb.exe",
@@ -8,4 +9,7 @@
     "pthread.h": "c",
     "random": "cpp"
   }
+=======
+  "C_Cpp_Runner.msvcBatchPath": ""
+>>>>>>> 77012f3b464011ad4ba97ff415afb9e764d2839f
 }
