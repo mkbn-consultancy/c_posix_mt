@@ -25,3 +25,9 @@ int main(){
 		_exit(0);
 	}
 }
+<<<<<<< HEAD
+=======
+
+
+//https://onlinegdb.com/ftJG03W4S
+>>>>>>> 77012f3b464011ad4ba97ff415afb9e764d2839f

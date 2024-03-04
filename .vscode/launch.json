@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": "0.2.0",
     "configurations": [
       {
@@ -22,3 +23,28 @@
       }
     ]
   }
+=======
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "g:/My Drive/Miri/MKBN/Courses/Tech - Updated/OS/MultiTreading in C/c_posix_mt",
+      "program": "g:/My Drive/Miri/MKBN/Courses/Tech - Updated/OS/MultiTreading in C/c_posix_mt/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
+>>>>>>> 77012f3b464011ad4ba97ff415afb9e764d2839f
